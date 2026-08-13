@@ -3,189 +3,130 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#274359">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#274359"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png">
-<title>Isa Run & Strength · V3</title>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Isa Run & Strength V4</title>
 <style>
-:root{--navy:#274359;--cyan:#00B2BF;--bg:#F3F6F8;--card:#fff;--text:#172536;--muted:#788692;--line:#DDE5EA;--good:#168653;--warn:#B7791F;--soft:#E8F7F8}
-*{box-sizing:border-box}html,body{margin:0;background:#DCE4E9;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text)}
-button,input,select{font:inherit}.app{max-width:430px;min-height:100vh;margin:auto;background:var(--bg);padding-bottom:92px}
-header{background:linear-gradient(145deg,#274359,#1d374b);color:#fff;padding:25px 18px 20px;border-radius:0 0 28px 28px}
-.kicker{font-size:10px;letter-spacing:1.3px;text-transform:uppercase;opacity:.72}.title{font-size:27px;font-weight:850;margin:3px 0}.sub{font-size:12px;opacity:.78}
-main{padding:15px}.view{display:none}.view.active{display:block}
-.card{background:var(--card);border:1px solid var(--line);border-radius:19px;padding:15px;margin-bottom:12px;box-shadow:0 4px 14px #2743590b}
-.row{display:flex;justify-content:space-between;align-items:center;gap:10px}.tag{display:inline-block;background:var(--soft);color:#087981;padding:6px 9px;border-radius:999px;font-size:10px;font-weight:800}.muted{font-size:12px;color:var(--muted)}
-h2{font-size:18px;margin:8px 0 4px}.big{font-size:25px;font-weight:850}.btn{border:0;border-radius:11px;padding:10px 13px;font-weight:750;cursor:pointer}.primary{background:var(--cyan);color:#fff}.secondary{background:#EDF2F5;color:var(--navy)}.danger{background:#FFF0F0;color:#A52A2A}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{background:#fff;border:1px solid var(--line);border-radius:15px;padding:12px}.stat strong{font-size:21px;display:block;margin-top:2px}
-.progress{height:7px;background:#E7EDF0;border-radius:99px;overflow:hidden;margin:11px 0}.progress i{display:block;height:100%;background:var(--cyan);width:0}
-.week{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:11px}.day{padding:8px 2px;text-align:center;border:1px solid var(--line);border-radius:10px;background:#FAFBFC;font-size:10px}.day b{display:block;font-size:12px}.day.active{background:#E7F8F9;border-color:#9EDFE3;color:#087981}
-.exercise{border-top:1px solid var(--line);padding:13px 0}.exercise:first-child{border-top:0}.exname{font-weight:750;font-size:14px}.plan{font-size:11px;color:var(--muted);margin-top:2px}
-.inputs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:8px}input,select{width:100%;border:1px solid #CDD7DE;background:#FBFCFD;border-radius:9px;padding:9px;outline:none}input:focus,select:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #00B2BF18}
-.status{font-size:11px;font-weight:700;color:var(--good);min-height:14px;margin-top:5px}.chip{font-size:10px;padding:5px 7px;border-radius:8px;background:#EEF2F5;color:#526371}
-.historyrow{padding:11px 0;border-bottom:1px solid var(--line)}.historyrow:last-child{border-bottom:0}
-.nav{position:fixed;z-index:20;bottom:0;left:50%;transform:translateX(-50%);width:min(430px,100%);background:#fff;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 3px calc(8px + env(safe-area-inset-bottom))}
-.nav button{border:0;background:transparent;color:#7D8993;font-size:10px;padding:4px 8px;cursor:pointer}.nav button.active{color:var(--navy);font-weight:850}
-.toast{position:fixed;z-index:30;top:15px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 14px;border-radius:11px;font-size:12px;display:none;box-shadow:0 6px 18px #0003}
-.bar{display:flex;gap:7px;flex-wrap:wrap}.bar .btn{flex:1;min-width:120px}
-.small{font-size:10px;padding:7px 9px}.green{color:var(--good)}.orange{color:var(--warn)}
-details summary{cursor:pointer;font-weight:750;padding:4px 0}
+:root{--navy:#274359;--cyan:#00B2BF;--bg:#F3F6F8;--line:#DDE5EA;--muted:#71808C;--ok:#16865B}
+*{box-sizing:border-box}body{margin:0;background:#DCE4E9;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172536}
+.app{max-width:430px;min-height:100vh;margin:auto;background:var(--bg);padding-bottom:92px}
+header{background:var(--navy);color:#fff;padding:24px 18px 20px;border-radius:0 0 27px 27px}.k{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;opacity:.7}.title{font-size:27px;font-weight:850}.sub{font-size:12px;opacity:.8;margin-top:3px}
+main{padding:14px}.view{display:none}.view.active{display:block}
+.card{background:#fff;border:1px solid var(--line);border-radius:19px;padding:15px;margin-bottom:12px;box-shadow:0 4px 14px #2743590b}
+.row{display:flex;justify-content:space-between;align-items:center;gap:9px}.tag,.chip{display:inline-block;border-radius:99px;padding:6px 9px;font-size:10px;font-weight:800}.tag{background:#E5F7F8;color:#087981}.chip{background:#EDF2F5;color:#526371}
+h2{font-size:18px;margin:8px 0 4px}.muted{font-size:12px;color:var(--muted)}.btn{border:0;border-radius:11px;padding:10px 13px;font-weight:800;cursor:pointer}.primary{background:var(--cyan);color:#fff}.secondary{background:#EDF2F5;color:var(--navy)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{background:#fff;border:1px solid var(--line);border-radius:15px;padding:12px}.stat b{display:block;font-size:22px;margin-top:3px}
+.today{background:#E8F7F8;border:1px solid #A9E1E4;border-radius:15px;padding:12px;margin-bottom:12px}.today strong{color:#087981}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:12px}.day{border:1px solid var(--line);border-radius:9px;text-align:center;padding:7px 2px;font-size:9px;min-height:50px}.day b{display:block;font-size:10px;margin-bottom:3px}.day.active{background:#E5F7F8;border-color:#A9E1E4;color:#087981;font-weight:800}.day.done{background:#EFF8F3}
+.exercise{border-top:1px solid var(--line);padding:13px 0}.exercise:first-child{border-top:0}.ex{font-size:14px;font-weight:800}.plan{font-size:11px;color:var(--muted);margin-top:3px}.inputs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:8px}input{width:100%;padding:9px;border:1px solid #CBD7DE;border-radius:9px;background:#FBFCFD;font-size:13px}input:focus{outline:2px solid #00B2BF33;border-color:var(--cyan)}
+.status{font-size:11px;color:var(--ok);min-height:15px;margin-top:5px}.history{border-top:1px solid var(--line);padding:11px 0}.history:first-child{border-top:0}
+.nav{position:fixed;z-index:20;bottom:0;left:50%;transform:translateX(-50%);width:min(430px,100%);background:#fff;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 2px calc(8px + env(safe-area-inset-bottom))}.nav button{border:0;background:none;color:#7D8993;font-size:10px;padding:4px 7px}.nav button.active{color:var(--navy);font-weight:850}
+.toast{position:fixed;z-index:30;top:15px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 14px;border-radius:11px;font-size:12px;display:none}
 </style>
 </head>
-<body>
-<div class="app">
-<header>
- <div class="kicker">Maratona + hipertrofia</div>
- <div class="title">Isa Run & Strength</div>
- <div class="sub">V3 · seu histórico + próxima sessão inteligente</div>
-</header>
+<body><div class="app">
+<header><div class="k">Preparação para maratona · hipertrofia</div><div class="title">Isa Run & Strength</div><div class="sub"><span id="dateLabel"></span> · <span id="weekLabel"></span></div></header>
 <main>
-
 <section id="home" class="view active">
- <div class="card">
-  <span class="tag">SEMANA 1 · BASE</span>
-  <h2>Próximo foco: Treino A</h2>
-  <div class="muted">Academia de terça a sábado · domingo longão</div>
-  <div class="progress"><i id="weekProgress"></i></div>
-  <div class="row"><span class="muted"><b id="weekDone">0</b>/5 treinos de academia registrados</span><button class="btn primary" onclick="openView('treino')">Abrir treino</button></div>
-  <div class="week">
-   <div class="day active"><b>TER</b>A</div><div class="day"><b>QUA</b>B</div><div class="day"><b>QUI</b>C</div><div class="day"><b>SEX</b>D</div><div class="day"><b>SÁB</b>E</div><div class="day"><b>DOM</b>13K</div><div class="day"><b>SEG</b>OFF</div>
-  </div>
- </div>
- <div class="grid2">
-  <div class="stat"><span class="muted">Treinos feitos</span><strong id="allWorkouts">5</strong></div>
-  <div class="stat"><span class="muted">Longão alvo</span><strong>13 km</strong></div>
- </div>
- <div class="card">
-  <div class="row"><h2 style="margin:0">Regra inteligente</h2><span class="chip">RIR 1–2</span></div>
-  <p class="muted">Se você atingir o topo da faixa com técnica boa e ainda tiver 1–2 repetições na reserva, o app sugere aumento. Perto de longões, prioriza recuperação e evita aumentar volume desnecessariamente.</p>
- </div>
- <div class="card"><h2>Calendário da corrida</h2><div class="historyrow"><b>Semana 1</b><div class="muted">Seg: 5 km com subidas · Qua: 2 km + 3×1500 m · Dom: 13 km</div></div><div class="historyrow"><b>Semana 2</b><div class="muted">Seg: 10 min + 8×200 m · Qua: 12×300 m · Dom: 15 km</div></div><div class="historyrow"><b>Semana 3</b><div class="muted">Seg: +6 km com subidas/descidas · Qua: 8×400 m · Dom: 14 km</div></div><div class="historyrow"><b>Semana 4</b><div class="muted">Seg: 5 km leve · Qua: 4×1 km confortável · Dom: 14 km leve</div></div></div>
+ <div class="today"><span class="tag" id="weekPill">SEMANA 2</span> <strong id="todayDate">Hoje</strong><h2 id="todayTitle">Carregando…</h2><div class="muted" id="todayDetail"></div><p><button class="btn primary" onclick="openToday()">Abrir treino de hoje</button></p></div>
+ <div class="card"><div class="row"><h2 style="margin:0">Semana atual</h2><span class="chip" id="longao">Longão 15 km</span></div><div class="week" id="weekStrip"></div></div>
+ <div class="grid"><div class="stat"><span class="muted">Semana do ciclo</span><b id="weekStat">2/4</b></div><div class="stat"><span class="muted">Treinos salvos</span><b id="savedCount">0</b></div></div>
+ <div class="card"><h2>Regra da Semana 2</h2><p class="muted">Manter as cargas da Semana 1 se possível. Na quinta, a mesa flexora fica com 2 séries. No sábado, manter 1–2 séries quando necessário para controlar a fadiga.</p></div>
 </section>
 
 <section id="treino" class="view">
- <div class="card">
-  <div class="row"><div><span class="tag">TREINO A</span><h2>Força posterior + glúteo</h2></div><span class="chip">~60 min</span></div>
-  <p class="muted">Sessão atual. As cargas abaixo já partem do seu histórico.</p>
-  <div id="currentExercises"></div>
-  <div class="bar"><button class="btn primary" onclick="finishCurrent()">✓ Salvar sessão</button><button class="btn secondary" onclick="resetCurrent()">Limpar</button></div>
- </div>
-</section>
-
-<section id="historico" class="view">
- <div class="card"><div class="row"><h2>Treinos já feitos</h2><span class="chip">importados</span></div><div id="history"></div></div>
+ <div class="card"><div class="row"><div><span class="tag" id="workoutTag">TREINO C</span><h2 id="workoutTitle">Pernas — principal</h2></div><span class="chip" id="workoutRir">RIR 1–2</span></div><div class="muted" id="workoutNote"></div><div id="exerciseList"></div><button class="btn primary" style="width:100%;margin-top:10px" onclick="finishWorkout()">✓ Salvar treino</button></div>
 </section>
 
 <section id="corrida" class="view">
- <div class="card"><span class="tag">CORRIDA</span><h2>Registrar sessão</h2><div class="inputs"><input id="runDate" type="date"><input id="runKm" type="number" step=".01" placeholder="km"><input id="runPace" placeholder="pace"></div><div class="inputs"><input id="runFeel" type="number" min="1" max="10" placeholder="sensação 1–10"><input id="runLegs" placeholder="pernas"><input id="runNote" placeholder="observação"></div><button class="btn primary" style="width:100%;margin-top:9px" onclick="saveRun()">Salvar corrida</button><div id="runStatus" class="status"></div></div>
- <div class="card"><h2>Longões</h2><div class="historyrow"><b>Semana 1 · 13 km</b><div class="muted">Leve, com subidas e descidas</div></div><div class="historyrow"><b>Semana 2 · 15 km</b><div class="muted">Leve + alonga bem</div></div><div class="historyrow"><b>Semana 3 · 14 km</b></div><div class="historyrow"><b>Semana 4 · 14 km</b><div class="muted">Leve + alonga</div></div></div>
+ <div class="card"><span class="tag" id="runTag">SEMANA 2</span><h2 id="runTitle">Corrida</h2><p class="muted" id="runPlan"></p>
+ <div class="inputs"><input id="runKm" type="number" step=".01" placeholder="km"><input id="runPace" placeholder="pace"><input id="runFeel" type="number" min="1" max="10" placeholder="sensação"></div>
+ <input id="runLegs" style="margin-top:6px" placeholder="como estavam as pernas?">
+ <input id="runNote" style="margin-top:6px" placeholder="observação">
+ <button class="btn primary" style="width:100%;margin-top:9px" onclick="saveRun()">Salvar corrida</button><div id="runStatus" class="status"></div></div>
+ <div class="card"><h2>Longões do ciclo</h2><div class="history"><b>Semana 1 · 13 km</b><div class="muted">Base</div></div><div class="history"><b>Semana 2 · 15 km</b><div class="muted">Progressão</div></div><div class="history"><b>Semana 3 · 14 km</b><div class="muted">Deload de pernas</div></div><div class="history"><b>Semana 4 · 14 km</b><div class="muted">Consolidação</div></div></div>
 </section>
 
-<section id="evolucao" class="view">
- <div class="card"><span class="tag">EVOLUÇÃO</span><h2>Progressão de carga</h2><p class="muted">A sugestão considera sua última carga registrada e a faixa de repetições. Aumentos são pequenos para preservar a corrida.</p></div>
- <div id="progression" class="card"></div>
-</section>
+<section id="historico" class="view"><div class="card"><h2>Histórico importado</h2><p class="muted">Treinos já realizados antes da V4.</p><div id="historyList"></div></div></section>
 
-<section id="perfil" class="view">
- <div class="card"><span class="tag">OBJETIVO</span><h2>Massa magra sem atrapalhar a maratona</h2><p class="muted">Estratégia: força/hipertrofia com volume controlado, maior estímulo longe do longão e redução de fadiga quando a quilometragem sobe.</p></div>
- <div class="card"><h2>Estrutura semanal</h2><div class="historyrow"><b>Terça</b><div class="muted">A · posterior/glúteo</div></div><div class="historyrow"><b>Quarta</b><div class="muted">B · postura/core</div></div><div class="historyrow"><b>Quinta</b><div class="muted">C · quadríceps/panturrilha</div></div><div class="historyrow"><b>Sexta</b><div class="muted">D · ombros/equilíbrio + 5–6 km leve</div></div><div class="historyrow"><b>Sábado</b><div class="muted">E · unilateral/estabilidade</div></div></div>
-</section>
-
+<section id="evolucao" class="view"><div class="card"><h2>Progressão de cargas</h2><p class="muted">A sugestão respeita o RIR e a regra do ciclo. Se atingir o topo da faixa com técnica boa e RIR adequado, aumente; se a técnica cair ou a corrida estiver pesada, mantenha/reduza.</p><div id="progression"></div></div></section>
 </main>
-<nav class="nav">
-<button class="active" onclick="openView('home',this)">⌂<br>Hoje</button>
-<button onclick="openView('treino',this)">▣<br>Treino</button>
-<button onclick="openView('historico',this)">↺<br>Histórico</button>
-<button onclick="openView('corrida',this)">◒<br>Corrida</button>
-<button onclick="openView('evolucao',this)">↗<br>Evolução</button>
-</nav>
+<nav class="nav"><button class="active" onclick="go('home',this)">⌂<br>Hoje</button><button onclick="go('treino',this)">▣<br>Treino</button><button onclick="go('corrida',this)">◒<br>Corrida</button><button onclick="go('historico',this)">↺<br>Histórico</button><button onclick="go('evolucao',this)">↗<br>Evolução</button></nav>
 <div id="toast" class="toast"></div>
 </div>
-
 <script>
-const historical=[
-{date:"31/07",code:"A",name:"Força Posterior e Glúteo",time:"62 min",sets:"31/32",total:"5.916 kg",items:[
-["Levantamento Terra com Barra Hexagonal","11 × 30 kg"],["Agachamento Búlgaro","12 × 15 kg"],["Stiff com Barra Livre","11 × 30 kg"],["Mesa Flexora","11 × 25 kg"],["Panturrilha no Leg Press 45","15 × 30 kg"],["Recúo + Avanço","12 × 8 kg"],["Cadeira adutora","12 × 35 kg"]]},
-{date:"04/08",code:"C",name:"Quadríceps e Panturrilha",time:"53 min",sets:"30/30",total:"8.804 kg",items:[
-["Leg Press 45","15 × 120 kg"],["Cadeira Extensora","12 × 36 kg"],["Step up no Smith","11 × 10 kg"],["Avanço com Halteres","12 × 8 kg"],["Avanço Alternado com Barra","11 × 20 kg"]]},
-{date:"06/08",code:"D",name:"Ombros e Equilíbrio Superior",time:"71 min",sets:"37/37",total:"3.996 kg",items:[
-["Supino Inclinado com Halteres","12 × 10 kg"],["Desenvolvimento com Halteres Sentado","12 × 14 kg"],["Elevação Lateral com Halteres","10 × 10 kg"],["Crucifixo Inverso Máquina","12 × 23 kg"],["Tríceps Testa Barra Reta","12 × 20 kg"],["Prancha Dinâmica","12 s"],["Prancha Toque nos Ombros","12 s"],["Rosca Alternada com Halteres","12 × 6 kg"],["Pulldown Barra Aberta","12 × 25 kg"]]},
-{date:"07/08",code:"E",name:"Unilateral e Estabilidade",time:"55 min",sets:"29/29",total:"6.710 kg",items:[
-["Agachamento Búlgaro","12 × 10 kg"],["Elevação de Quadril na Máquina","12 × 40 kg"],["Cadeira Flexora","10 × 35 kg"],["Cadeira abdutora","12 × 63 kg"],["Adução de Quadril com Caneleira","12 × 5 kg"],["Glúteos Coice na Polia","12 × 15 kg"],["Abdominal Escalador","12 × 10 kg"]]},
-{date:"08/08",code:"B",name:"Postura e Core",time:"66 min",sets:"33/33",total:"3.715 kg",items:[
-["Remada Baixa Unilateral neutra","10 × 30 kg"],["Pulldown Barra Aberta","12 × 25 kg"],["Face Pull","12 × 25 kg"],["Prancha de cotovelos Isométrica","45 s"],["Prancha Lateral Isométrica","30 s"],["Rosca Direta Barra Reta","12 × 15 kg"],["Abdominal Bicicleta","—"],["Crucifixo Inverso Máquina","12 × 15 kg"]]}
+const START=new Date(2026,7,3); // Semana 1 começa na segunda 03/08/2026
+const DAYS=["SEG","TER","QUA","QUI","SEX","SÁB","DOM"];
+const KEY=["seg","ter","qua","qui","sex","sab","dom"];
+const PLAN={
+1:{seg:"Corrida-chave · 5 km com subidas",ter:"A · Costas + bíceps + core",qua:"B · Peito + ombros + tríceps + tiros",qui:"C · Pernas principal",sex:"D · Upper + glúteo + 5–6 km leve",sab:"E · Upper + estabilidade",dom:"Longão · 13 km"},
+2:{seg:"Corrida-chave · 10 min + 8×200 m",ter:"A · Costas + bíceps + core",qua:"B · Peito + ombros + tríceps + 12×300 m",qui:"C · Pernas principal",sex:"D · Upper + glúteo + 5–6 km leve",sab:"E · Upper + estabilidade",dom:"Longão · 15 km"},
+3:{seg:"Corrida-chave · +6 km com subidas/descidas",ter:"A · Costas + bíceps + core",qua:"B · Peito + ombros + tríceps + 8×400 m",qui:"C · Pernas deload",sex:"D · Upper + glúteo + 5–6 km leve",sab:"E · Upper + estabilidade",dom:"Longão · 14 km"},
+4:{seg:"Corrida-chave · 5 km leve",ter:"A · Costas + bíceps + core",qua:"B · Peito + ombros + tríceps + 4×1 km",qui:"C · Pernas controlado",sex:"D · Upper + glúteo + 5–6 km leve",sab:"E · Upper + estabilidade",dom:"Longão · 14 km"}
+};
+
+const workouts={
+A:{title:"Costas + Bíceps + Core",rir:"1–2",note:"Terça-feira · preservar qualidade para a corrida de quarta.",ex:[
+["Puxada alta aberta","3×8–10",30,2],["Remada baixa neutra","3×8–10",30,2],["Remada unilateral","2×10–12",11,2],["Face Pull","3×12–15",25,1],["Crucifixo inverso","2×12–15",15,1],["Rosca direta","3×8–12",14,1],["Rosca alternada","2×10–12",5,1],["Dead Bug","2×10/lado",5,2],["Pallof Press","2×10/lado",5,2]]},
+B:{title:"Peito + Ombros + Tríceps",rir:"1–2",note:"Quarta-feira · não levar as séries à falha para preservar a corrida.",ex:[
+["Supino inclinado com halteres","3×8–10",10,2],["Supino máquina","3×8–10",null,2],["Desenvolvimento sentado","3×8–10",14,2],["Elevação lateral","3×12–15",10,1],["Crucifixo máquina/cabo","2×12–15",null,1],["Tríceps testa","3×8–12",20,1],["Tríceps corda","2×10–15",null,1],["Prancha lateral","2×30–45s/lado",null,2]]},
+C:{title:"Pernas — principal",rir:"1–2",note:"Quinta-feira · Semana 2: manter cargas se possível; mesa flexora com 2 séries.",ex:[
+["Stiff / RDL","3×6–8",30,2],["Leg Press 45°","3×8–10",130,2],["Hip Thrust","3×8–10",20,1],["Mesa flexora","2×10–12",25,1],["Cadeira extensora","2×10–12",35,1],["Agachamento búlgaro","2×8–10/perna",10,2],["Panturrilha","3×10–15",15,2],["Dead Bug","2×10/lado",5,2]]},
+D:{title:"Upper + Glúteo",rir:"1–2",note:"Sexta-feira · 5–6 km leve + musculação. Volume controlado.",ex:[
+["Puxada alta","3×8–10",30,2],["Supino inclinado","3×8–10",10,2],["Remada baixa","2×10–12",30,2],["Elevação lateral","3×12–15",10,1],["Rosca direta","2×10–12",14,1],["Tríceps corda","2×10–15",null,1],["Glúteo na polia","2×12–15",15,2],["Abdutora","2×15–20",63,2]]},
+E:{title:"Upper + Estabilidade",rir:"2–3",note:"Sábado · manter 1–2 séries quando a fadiga da corrida exigir.",ex:[
+["Remada unilateral","2×10–12",11,2],["Supino máquina","2×10–12",null,2],["Face Pull","2×12–15",25,2],["Elevação lateral","2×15",10,2],["Crucifixo inverso","2×12–15",15,2],["Pallof Press","2×10/lado",5,2],["Dead Bug","2×10/lado",5,2],["Equilíbrio unilateral","2×30s/lado",null,3],["Panturrilha unilateral","2×12/lado",null,3]]}
+};
+
+const history=[
+["31/07","A","Força Posterior e Glúteo","62 min","5.916 kg",["Terra Hexagonal 11×30 kg","Búlgaro 12×15 kg","Stiff 11×30 kg","Mesa Flexora 11×25 kg","Panturrilha 15×30 kg","Recúo + Avanço 12×8 kg","Adutora 12×35 kg"]],
+["04/08","C","Quadríceps e Panturrilha","53 min","8.804 kg",["Leg Press 45 15×120 kg","Extensora 12×36 kg","Step up Smith 11×10 kg","Avanço Halteres 12×8 kg","Avanço Barra 11×20 kg"]],
+["06/08","D","Ombros e Equilíbrio Superior","71 min","3.996 kg",["Supino inclinado 12×10 kg","Desenvolvimento 12×14 kg","Elevação lateral 10×10 kg","Crucifixo inverso 12×23 kg","Tríceps testa 12×20 kg","Rosca alternada 12×6 kg","Pulldown 12×25 kg"]],
+["07/08","E","Unilateral e Estabilidade","55 min","6.710 kg",["Búlgaro 12×10 kg","Elevação de quadril 12×40 kg","Cadeira flexora 10×35 kg","Abdutora 12×63 kg","Adução 12×5 kg","Glúteos coice 12×15 kg"]],
+["08/08","B","Postura e Core","66 min","3.715 kg",["Remada baixa unilateral 10×30 kg","Pulldown 12×25 kg","Face Pull 12×25 kg","Prancha 45 s","Rosca direta 12×15 kg","Crucifixo inverso 12×15 kg"]]
 ];
 
-const current=[
-["Levantamento Terra com Barra Hexagonal","3 × 8–10",30],
-["Agachamento Búlgaro","3 × 8–10",15],
-["Stiff com Barra Livre","3 × 8–10",30],
-["Mesa Flexora","3 × 10–12",25],
-["Panturrilha no Leg Press 45","3 × 12–15",30],
-["Recúo + Avanço","2 × 10–12",8],
-["Cadeira adutora","2 × 10–12",35]
-];
-
-function storage(k,v){if(v===undefined)return localStorage.getItem("isa3_"+k)||"";localStorage.setItem("isa3_"+k,v)}
-function renderCurrent(){
- const box=document.getElementById("currentExercises");box.innerHTML="";
- current.forEach((e,i)=>{
-  const saved=storage("done"+i)==="1";
-  const d=document.createElement("div");d.className="exercise";
-  d.innerHTML='<div class="row"><div><div class="exname">'+e[0]+'</div><div class="plan">'+e[1]+' · base '+e[2]+' kg · RIR 1–2</div></div><button class="btn small '+(saved?'primary':'secondary')+'" onclick="toggleDone('+i+')">'+(saved?'✓ Feito':'Concluir')+'</button></div>'+
-  '<div class="inputs"><input type="number" step=".5" inputmode="decimal" placeholder="carga kg" value="'+storage("kg"+i)+'" id="kg'+i+'"><input type="number" inputmode="numeric" placeholder="reps 1" value="'+storage("r1"+i)+'" id="r1'+i+'"><input type="number" inputmode="numeric" placeholder="reps 2/3" value="'+storage("r2"+i)+'" id="r2'+i+'"></div><div id="s'+i+'" class="status"></div>';
-  box.appendChild(d);
-  ["kg","r1","r2"].forEach(f=>document.getElementById(f+i).addEventListener("input",ev=>storage(f+i,ev.target.value)));
- });
+function cycle(){let n=new Date();n.setHours(0,0,0,0);let d=Math.floor((n-START)/86400000);return {n,week:Math.max(1,Math.min(4,Math.floor(d/7)+1)),idx:(n.getDay()+6)%7};}
+function todayCode(){let c=cycle(),i=c.idx;return {0:null,1:"A",2:"B",3:"C",4:"D",5:"E",6:null}[i];}
+function renderHome(){
+ let c=cycle(),p=PLAN[c.week],k=KEY[c.idx],code=todayCode(),fmt=new Intl.DateTimeFormat("pt-BR",{weekday:"long",day:"2-digit",month:"2-digit"});
+ dateLabel.textContent=fmt.format(c.n);weekLabel.textContent="Semana "+c.week;
+ weekPill.textContent="SEMANA "+c.week;todayDate.textContent=fmt.format(c.n);weekStat.textContent=c.week+"/4";
+ todayTitle.textContent=code?("Treino "+code+" — "+workouts[code].title):p[k];
+ todayDetail.textContent=p[k];
+ longao.textContent=c.week===1?"Longão 13 km":c.week===2?"Longão 15 km":"Longão 14 km";
+ weekStrip.innerHTML=KEY.map((x,i)=>'<div class="day '+(i===c.idx?'active ':'')+'"><b>'+DAYS[i]+'</b>'+PLAN[c.week][x].replace(" · ","<br>").replace("Musculação ","")+'</div>').join("");
+ savedCount.textContent=localStorage.getItem("isa_v4_sessions")||"0";
 }
-function toggleDone(i){storage("done"+i,storage("done"+i)==="1"?"0":"1");renderCurrent();updateHome();toast(storage("done"+i)==="1"?"Exercício concluído":"Exercício reaberto")}
-function finishCurrent(){
- let n=0;current.forEach((_,i)=>{if(storage("done"+i)==="1")n++});
- if(!n){toast("Marque pelo menos um exercício.");return}
- let sessions=Number(storage("sessions")||0)+1;storage("sessions",sessions);
- toast("Sessão salva! Boa, Isa.");
- updateHome();renderProgression();
-}
-function resetCurrent(){
- if(!confirm("Limpar os registros da sessão atual?"))return;
- current.forEach((_,i)=>["kg","r1","r2","done"].forEach(f=>localStorage.removeItem("isa3_"+f+i)));
- renderCurrent();updateHome();toast("Sessão limpa.")
-}
-function updateHome(){
- let n=0;current.forEach((_,i)=>{if(storage("done"+i)==="1")n++});
- document.getElementById("weekDone").textContent=Math.min(5,Number(storage("sessions")||0));
- document.getElementById("weekProgress").style.width=Math.min(100,(Number(storage("sessions")||0)/5)*100)+"%";
- document.getElementById("allWorkouts").textContent=5+Number(storage("sessions")||0);
-}
-function renderHistory(){
- document.getElementById("history").innerHTML=historical.map(x=>'<div class="historyrow"><div class="row"><b>'+x.date+' · Treino '+x.code+'</b><span class="chip">'+x.time+'</span></div><div class="muted">'+x.name+' · '+x.sets+' séries · '+x.total+'</div><details><summary>Ver cargas</summary>'+x.items.map(i=>'<div class="muted" style="padding:4px 0">• '+i[0]+' — <b>'+i[1]+'</b></div>').join("")+'</details></div>').join("");
-}
-function renderProgression(){
- const rows=current.map((e,i)=>{
-  const kg=parseFloat(storage("kg"+i)||e[2]);const reps=parseInt(storage("r2"+i)||storage("r1"+i)||0);
-  let suggested=kg,why="consolidar";
-  const max=parseInt((e[1].match(/\d+$/)||["10"])[0]);
-  if(reps>=max){suggested=Math.round((kg*1.025)/0.5)*0.5;why="topo da faixa → +2,5%"}
-  return '<div class="historyrow"><div class="row"><b>'+e[0]+'</b><span class="chip">'+kg+' kg</span></div><div class="muted">Próxima sugestão: <b>'+suggested+' kg</b> · '+why+'</div></div>';
+function openToday(){let code=todayCode();if(code)openWorkout(code);else go("corrida");}
+function openWorkout(code){currentCode=code;let w=workouts[code];workoutTag.textContent="TREINO "+code;workoutTitle.textContent=w.title;workoutRir.textContent="RIR "+w.rir;workoutNote.textContent=w.note;renderExercises(code);go("treino");}
+let currentCode="C";
+function key(code,i,f){return "isa_v4_"+code+"_"+i+"_"+f}
+function get(code,i,f){return localStorage.getItem(key(code,i,f))||""}
+function setv(code,i,f,v){localStorage.setItem(key(code,i,f),v)}
+function renderExercises(code){
+ let list=document.getElementById("exerciseList"),w=workouts[code];list.innerHTML=w.ex.map((e,i)=>{
+  let done=get(code,i,"done")==="1",kg=get(code,i,"kg")||e[2]||"";
+  return `<div class="exercise"><div class="row"><div><div class="ex">${e[0]}</div><div class="plan">${e[1]} · RIR ${e[3]} · ${e[2]?"base "+e[2]+" kg":"carga a definir"}</div></div><button class="btn ${done?"primary":"secondary"}" onclick="toggle(${i})">${done?"✓ Feito":"Concluir"}</button></div><div class="inputs"><input type="number" step=".5" inputmode="decimal" placeholder="carga kg" value="${kg}" onchange="setv('${code}',${i},'kg',this.value)"><input type="number" inputmode="numeric" placeholder="rep 1" value="${get(code,i,"r1")}" onchange="setv('${code}',${i},'r1',this.value)"><input type="number" inputmode="numeric" placeholder="rep 2/3" value="${get(code,i,"r2")}" onchange="setv('${code}',${i},'r2',this.value)"></div><div class="status">${done?"Registrado":""}</div></div>`
  }).join("");
- document.getElementById("progression").innerHTML="<h2>Próximas cargas</h2>"+rows;
 }
-function saveRun(){
- const d=document.getElementById("runDate").value,k=document.getElementById("runKm").value,p=document.getElementById("runPace").value,f=document.getElementById("runFeel").value,l=document.getElementById("runLegs").value,n=document.getElementById("runNote").value;
- localStorage.setItem("isa3_run",JSON.stringify({d,k,p,f,l,n}));
- document.getElementById("runStatus").textContent="✓ Corrida salva neste aparelho";toast("Corrida registrada.");
-}
-function openView(id,btn){
- document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");
- document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));
- if(btn)btn.classList.add("active");
- else document.querySelectorAll(".nav button")[["home","treino","historico","corrida","evolucao"].indexOf(id)].classList.add("active");
- if(id==="historico")renderHistory();if(id==="evolucao")renderProgression();
-}
-function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.style.display="block";clearTimeout(window.tt);window.tt=setTimeout(()=>t.style.display="none",1900)}
-document.addEventListener("DOMContentLoaded",()=>{
- renderCurrent();renderHistory();renderProgression();updateHome();
- const r=JSON.parse(localStorage.getItem("isa3_run")||"null");if(r){runDate.value=r.d||"";runKm.value=r.k||"";runPace.value=r.p||"";runFeel.value=r.f||"";runLegs.value=r.l||"";runNote.value=r.n||"";runStatus.textContent="✓ Última corrida salva neste aparelho";}
-});
+function toggle(i){let v=get(currentCode,i,"done")==="1"?"0":"1";setv(currentCode,i,"done",v);renderExercises(currentCode)}
+function finishWorkout(){let w=workouts[currentCode],n=w.ex.filter((_,i)=>get(currentCode,i,"done")==="1").length;if(!n)return toast("Marque pelo menos um exercício.");let today=new Date().toISOString().slice(0,10);localStorage.setItem("isa_v4_session_"+today,currentCode);localStorage.setItem("isa_v4_sessions",String(Number(localStorage.getItem("isa_v4_sessions")||0)+1));toast("Treino "+currentCode+" salvo!");renderHome()}
+function renderHistory(){historyList.innerHTML=history.map(h=>`<div class="history"><div class="row"><b>${h[0]} · Treino ${h[1]}</b><span class="chip">${h[3]}</span></div><div class="muted">${h[2]} · ${h[4]}</div><details><summary>Ver registros</summary>${h[5].map(x=>`<div class="muted">• ${x}</div>`).join("")}</details></div>`).join("")}
+function renderProgression(){
+ let c=cycle(),w=workouts.C,items=w.ex.filter(x=>x[2]);progression.innerHTML=items.map(e=>{
+  let next=e[2],label="manter / testar topo da faixa";
+  if(e[0]==="Leg Press 45°")next=135,label="se 3×10 com RIR 2 → 135 kg";
+  else if(e[0]==="Stiff / RDL")next=30,label="manter 30 kg e consolidar";
+  else if(e[0]==="Hip Thrust")next=20,label="manter 20 kg; subir só com margem";
+  else if(e[0]==="Mesa flexora")next=25,label="manter 25 kg; só 2 séries";
+  return `<div class="history"><div class="row"><b>${e[0]}</b><span class="chip">${next} kg</span></div><div class="muted">${label}</div></div>`;
+ }).join("")}
+function saveRun(){let c=cycle(),data={date:new Date().toISOString(),km:runKm.value,pace:runPace.value,feel:runFeel.value,legs:runLegs.value,note:runNote.value};localStorage.setItem("isa_v4_run_"+c.week+"_"+c.idx,JSON.stringify(data));runStatus.textContent="✓ Corrida salva neste aparelho";toast("Corrida registrada!")}
+function renderRun(){let c=cycle(),p=PLAN[c.week],k=KEY[c.idx];runTag.textContent="SEMANA "+c.week;runTitle.textContent=p[k];runPlan.textContent=c.idx===6?"Longão programado: "+(c.week===1?"13":c.week===2?"15":"14")+" km.":"Plano do dia: "+p[k]}
+function go(id,btn){document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(id).classList.add("active");document.querySelectorAll(".nav button").forEach(b=>b.classList.remove("active"));if(btn)btn.classList.add("active");if(id==="corrida")renderRun();if(id==="historico")renderHistory();if(id==="evolucao")renderProgression()}
+function toast(msg){let t=document.getElementById("toast");t.textContent=msg;t.style.display="block";clearTimeout(window.tt);window.tt=setTimeout(()=>t.style.display="none",1800)}
+document.addEventListener("DOMContentLoaded",()=>{renderHome();renderHistory();renderProgression();renderRun();openWorkout(todayCode()||"C")});
 </script>
-<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js"));}</script></body>
-</html>
+</body></html>
